@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>{$title}</title>
+<title>Список заявок, которые оставили на сайте</title>
 <meta name="description" content="Standart-N" />
 <meta name="keywords" content="Standart-N" />
 <meta name="Revesit" content="3" />
@@ -13,7 +13,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="favicon.ico" rel="icon" type="image/x-icon">
 <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
-<link href="style/site/main.css" rel="stylesheet" type="text/css">
+<link href="sn-project/style/site/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div id="main">
