@@ -13,7 +13,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="favicon.ico" rel="icon" type="image/x-icon">
 <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
-<link href="sn-project/style/site/main.css" rel="stylesheet" type="text/css">
+<link href="sn-project/style/main.css" rel="stylesheet" type="text/css">
+<script src="sn-project/lib/jQuery1.7.min.js" type="text/javascript"></script>
+<script src="sn-project/script/main.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="main">

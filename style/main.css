@@ -37,3 +37,12 @@ background:#ff4444;
 .claims-table-line-simple {
 background:#fafafa;
 }
+
+.claims-edit-status {
+font-family:Verdana;
+font-size:10px;
+color:#030303;
+width:200px;
+padding:0 5px 0 5px;
+}
+

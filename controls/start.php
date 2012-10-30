@@ -1,7 +1,6 @@
 <?php class start extends sn {
 
 function __construct() {
-	
 	load("index.tpl");
 	innerHTML("#main",self::getClaims());
 	echo html();
@@ -25,7 +24,7 @@ function getClaims() {
 				$pc[$i]['country']=$r->country;
 				$pc[$i]['status']=toUTF($r->status);
 				$pc[$i]['comment']=$r->comment;
-				$pc[$i]['post_dt']=self::setDate($r->post_dt,"day-month");
+				$pc[$i]['post_dt']=self::setDate($r->post_dt);
 				foreach (array("email","skype","icq","city","status","site") as $key) {
 					if ($pc[$i][$key]=="") { $pc[$i][$key]="-"; }
 				}		

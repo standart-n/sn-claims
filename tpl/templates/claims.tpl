@@ -42,7 +42,7 @@
 						{$key.caption}
 					</td>
 					<td align="left">
-						{$key.status}
+						<input data-claim-id="{$key.id}" class="claims-edit-status" type="text" value="{$key.status}">
 					</td>
 					<td align="left">
 						{$key.msg}
