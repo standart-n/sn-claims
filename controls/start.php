@@ -29,9 +29,9 @@ function getClaims() {
 					if ($pc[$i][$key]=="") { $pc[$i][$key]="-"; }
 				}		
 				if ($r->status=="New") {
-					$pc[$i]['line_class']="claims-table-line-new";
+					$pc[$i]['line_class']="error";
 				} else {
-					$pc[$i]['line_class']="claims-table-line-simple";
+					$pc[$i]['line_class']="";
 				}
 
 		}

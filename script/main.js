@@ -4,7 +4,7 @@ $(function(){
 		$(this).focus().select();
 	});
 	$(".claims-edit-status").on("blur",function(){		
-		if ($(this).val()=="") { $(this).val("-"); }
+		if ($(this).val()==='') { $(this).val("-"); }
 	});
 	$(".claims-edit-status").on("keyup",function(){
 		var claim_id=$(this).data("claim-id");
