@@ -1,53 +1,52 @@
 <?php class ajax extends sn {
 	
-public static $conf;
-public static $options;
-public static $url;
+public static $response;
 
 function __construct() {
-	if (self::getUrl()) {
-		switch (self::$url->action){
-		case "editStatus":
-			if (self::editStatus()) { echo "изменено"; } else { echo "ошибка"; }
-		break;
+	self::$response=array();
+	if (self::getControls()) {
+		if (self::getAction()) {
+			echo self::getResponseString(json_encode(self::$response));
 		}
-	}
+	}	
 }
 
-
-function getUrl() {
-	self::$url=new def;
-	if (self::checkParams(array("action"))) {
-		switch (self::$url->action){
-		case "editStatus":
-			return self::checkParams(array("id","message"));
-		break;
-		default: return false;
+function getResponseString($s="") {
+	if ($s) {
+		console::write("---");
+		console::write("response:");
+		console::write($s);
+		if (isset(url::$callback)) {
+			return url::$callback."(".$s.");";
+		} else {
+			return $s;
 		}
-	}
-	return true;
-}
-
-function checkParams($ms) {
-	foreach ($ms as $key) {
-		if (!isset($_REQUEST[$key])) return false;
-		self::$url->$key=trim(strval($_REQUEST[$key]));
-		if (self::$url->$key=="") return false;
-	}
-	return true;
-}
-
-function editStatus() {
-	$id=intval(self::$url->id);
-	$msg=toWIN(self::$url->message);
-	if ($id>0) {
-		if (query(array(
-			"sql"=>"update `standart_dataClaims` SET `status`='".$msg."' where (id=".$id.")  "
-		))) {
-				return true;
-			}
 	}
 	return false;
+}
+
+function getAction() {
+	if (isset(url::$action)) {
+		console::write("action: ".url::$action);
+		switch(url::$action) {
+			case "signin":
+				self::$response=project::signin(); return true;				
+			break;
+			case "edit":
+				self::$response=project::edit(); return true;				
+			break;
+		}
+	}
+	return false;
+}
+
+function getControls() {
+	foreach (array("signin","url","sql","project","app","console") as $key) {
+		if (!file_exists(project."/controls/".$key.".php")) return false;
+		require_once(project."/controls/".$key.".php");
+		sn::cl($key);
+	}
+	return true;	
 }
 
 } ?>

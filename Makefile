@@ -1,6 +1,6 @@
 
-SN_CSS = ./css/main.css
-SN_LESS = ./less/main.less
+SN_CSS = ./css/sn.css
+SN_LESS = ./less/sn.less
 BOOTSTRAP_CSS = ./css/bootstrap.css
 BOOTSTRAP_LESS = ./bootstrap/less/bootstrap.less
 BOOTSTRAP_RESPONSIVE_CSS = ./css/bootstrap-responsive.css
@@ -26,7 +26,8 @@ build:
 	@recess --compile ${SN_LESS} > ${SN_CSS}
 	@echo "Compiling LESS with Recess...               ${CHECK} Done"
 
-	@uglifyjs ./script/main.js -nc > ./js/main.min.js
+	@cat ./script/jQuery.sn.js ./script/jQuery.sn.ajax.js ./script/jQuery.sn.conf.js ./script/jQuery.sn.events.js ./script/jQuery.sn.triggers.js > ./js/sn.js
+	@uglifyjs ./js/sn.js -nc > ./js/sn.min.js
 	@echo "Compiling and minifying javascript...       ${CHECK} Done"
 
 	@echo "Successfully built."
@@ -42,7 +43,9 @@ build:
 	@recess --compile ${BOOTSTRAP_LESS} > ${BOOTSTRAP_CSS}
 	@recess --compile ${BOOTSTRAP_RESPONSIVE_LESS} > ${BOOTSTRAP_RESPONSIVE_CSS}
 	@echo "Compiling LESS with Recess...               ${CHECK} Done"
-
+	
+	@cp ./bootstrap/img/* ./img/
+	
 	@cat ./bootstrap/js/bootstrap-transition.js ./bootstrap/js/bootstrap-alert.js ./bootstrap/js/bootstrap-button.js ./bootstrap/js/bootstrap-carousel.js ./bootstrap/js/bootstrap-collapse.js ./bootstrap/js/bootstrap-dropdown.js ./bootstrap/js/bootstrap-modal.js ./bootstrap/js/bootstrap-tooltip.js ./bootstrap/js/bootstrap-popover.js ./bootstrap/js/bootstrap-scrollspy.js ./bootstrap/js/bootstrap-tab.js ./bootstrap/js/bootstrap-typeahead.js ./bootstrap/js/bootstrap-affix.js > ./js/bootstrap.js
 	@uglifyjs ./js/bootstrap.js -nc > ./js/bootstrap.min.tmp.js
 
@@ -52,6 +55,7 @@ build:
 
 	@echo "Compiling and minifying javascript...       ${CHECK} Done"
 	@echo "\n${HR}"
+
 
 	@echo "Successfully built at ${DATE}."
 
