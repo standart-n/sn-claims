@@ -25,7 +25,7 @@
 				<tr class="{$key.line_class}">
 					<td>{$key.id}</td>
 					<td>{$key.caption}</td>
-					<td><input data-claim-id="{$key.id}" class="input-medium" type="text" value="{$key.status}"></td>
+					<td><input data-claim-id="{$key.id}" class="claims-edit-status input-medium" type="text" value="{$key.status}"></td>
 					<td>{$key.msg}</td>
 					<td>{$key.email}</td>
 					<td>{$key.skype}</td>
