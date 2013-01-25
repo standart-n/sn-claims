@@ -16,6 +16,11 @@ public static $message;
 function __construct() {
 	self::$id=0;
 	self::$message='';
+	self::$prev=false;
+	self::$next=false;
+	self::$skip=0;
+	self::$page=1;
+	self::$limit=20;
 }
 
 function claims($pc=array(),$i=-1) {
@@ -91,5 +96,36 @@ function setDate($k,$type="day-month") {
 	return $s;
 }
 
+function pagination($list=array(),$i=0) {
+	if (isset(url::$page)) { self::$page=url::$page; }
+	if (query(sql::pagination(),$ms)) {
+		foreach ($ms as $r) {
+			self::$records=$r->count_id;
+		}
+	}
+	self::$pages=ceil(self::$records/self::$limit);
+	self::$skip=(self::$page-1)*self::$limit;
+	
+	if (self::$page<1) { self::$page=1; }
+	if (self::$page>self::$pages) { self::$page=self::$pages; }
+	
+	if (((self::$page-6)>0) && !((self::$page+3)<(self::$pages+1))) { $list[$i]['page']=self::$page-6; $list[$i]['hidden']=true; $i++; }
+	if (((self::$page-5)>0) && !((self::$page+2)<(self::$pages+1))) { $list[$i]['page']=self::$page-5; $list[$i]['hidden']=true; $i++; }
+	if (((self::$page-4)>0) && !((self::$page+1)<(self::$pages+1))) { $list[$i]['page']=self::$page-4; $list[$i]['hidden']=true; $i++; }
+	if ((self::$page-3)>0) { $list[$i]['page']=self::$page-3; $list[$i]['hidden']=true; $i++; }
+	if ((self::$page-2)>0) { $list[$i]['page']=self::$page-2; $list[$i]['hidden']=true; $i++; }
+	if ((self::$page-1)>0) { $list[$i]['page']=self::$page-1; $list[$i]['hidden']=true; $i++; }
+	$list[$i]['page']=self::$page; $list[$i]['active']=true; $i++;
+	if ((self::$page+1)<(self::$pages+1)) { $list[$i]['page']=self::$page+1; $list[$i]['hidden']=true; $i++; }
+	if ((self::$page+2)<(self::$pages+1)) { $list[$i]['page']=self::$page+2; $list[$i]['hidden']=true; $i++; }
+	if ((self::$page+3)<(self::$pages+1)) { $list[$i]['page']=self::$page+3; $list[$i]['hidden']=true; $i++; }
+	if (((self::$page+4)<(self::$pages+1)) && !((self::$page-1)>0)) { $list[$i]['page']=self::$page+4; $list[$i]['hidden']=true; $i++; }
+	if (((self::$page+5)<(self::$pages+1)) && !((self::$page-2)>0)) { $list[$i]['page']=self::$page+5; $list[$i]['hidden']=true; $i++; }
+	if (((self::$page+6)<(self::$pages+1)) && !((self::$page-3)>0)) { $list[$i]['page']=self::$page+6; $list[$i]['hidden']=true; $i++; }
+
+	if ((self::$page-1)>0) { self::$prev=true; }
+	if ((self::$page+1)<(self::$pages+1)) { self::$next=true; }
+	return $list;
+}
 
 } ?>

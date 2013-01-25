@@ -3,6 +3,7 @@
 public static $key;
 public static $action;
 public static $callback;
+public static $page;
 public static $id;
 public static $message;
 public static $login;
@@ -15,6 +16,9 @@ function __construct() {
 		self::$key=trim(strval($_REQUEST["key"]));
 	}
 
+	if (isset($_REQUEST["page"])) {
+		self::$page=trim(strval($_REQUEST["page"]));
+	}
 	if (isset($_REQUEST["action"])) {
 		self::$action=trim(strval($_REQUEST["action"]));
 	}

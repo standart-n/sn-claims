@@ -25,6 +25,10 @@
 									$("#claims").html(sn.result.claims);
 									$(this).snTriggers('table');
 								}
+								if (sn.result.pagination) {
+									$("#pagination").html(sn.result.pagination);
+									$(this).snTriggers('pagination');
+								}
 								$("#signin").empty();
 							} else {
 								$("#inputLogin").val('');

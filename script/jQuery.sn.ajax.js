@@ -16,6 +16,7 @@
 				'action':'submit',
 				'login':$('#inputLogin').val(),
 				'password':$('#inputPassword').val(),
+				'page':$('#page').val(),
 				'id':'',
 				'message':''
 			};
@@ -27,6 +28,7 @@
 				type:'POST',
 				data:{
 					action:def.action,
+					page:def.page,
 					login:def.login,
 					password:def.password,
 					id:def.id,

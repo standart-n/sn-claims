@@ -32,6 +32,7 @@
 <div id="main">
 	<div id="signin"></div>
 	<div id="claims"></div>
+	<div id="pagination"></div>
 </div>
 
 <div id="js">
