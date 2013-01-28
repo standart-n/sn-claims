@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Учет звонков</title>
+<title>Заявки на сайте</title>
 <meta http-equiv="Content-Language" content="ru" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="description" content="Учет звонков" />

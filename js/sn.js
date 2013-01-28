@@ -244,9 +244,9 @@
 			$(".status").on("keyup",function(){
 				th.snAjax('sendRequest',{'action':'edit','id':$(this).data('id'),'message':$(this).val(),'debug':false});
 			});
-			$(".status").on("blur",function(){
+/*			$(".status").on("blur",function(){
 				th.snAjax('sendRequest',{'action':'edit','id':$(this).data('id'),'message':$(this).val(),'debug':false});
-			});
+			});*/
 		},
 		pagination:function()
 		{
