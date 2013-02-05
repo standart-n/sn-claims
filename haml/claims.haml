@@ -1,0 +1,45 @@
+.container-fluid
+	.row-fluid
+		%h4 Заявки на сайте
+
+	.row-fluid
+		.span12
+		%table.table.table-hover.table-condensed.table-striped
+			%thead
+				%tr
+					%th.hidden-phone
+					%th Имя
+					%th Статус
+					%th Телефон
+					%th.hidden-phone E-mail
+					%th.hidden-phone.hidden-tablet Skype
+					%th.hidden-phone.hidden-tablet Icq
+					%th.hidden-phone.hidden-tablet Site
+					%th Город
+					%th Дата
+			%tbody
+				{if isset($claims)}
+				{foreach from=$claims item=key}
+				%tr{:class => "{$key.line_class}"}
+					%td.hidden-phone
+						%small {$key.id}
+					%td
+						%small {$key.caption}
+					%td
+						%input.status.input-medium{:type => "text", :value => "{$key.status}", :data => {:id => "{$key.id}"}}
+					%td
+						%small {$key.msg}
+					%td.hidden-phone
+						%small {$key.email}
+					%td.hidden-phone.hidden-tablet
+						%small {$key.skype}
+					%td.hidden-phone.hidden-tablet
+						%small {$key.icq}
+					%td.hidden-phone.hidden-tablet
+						%small {$key.site}
+					%td
+						%small {$key.city}
+					%td
+						%small {$key.post_dt}
+			{/foreach}
+			{/if}
