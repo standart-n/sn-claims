@@ -54,9 +54,9 @@
             <small>{$key.post_dt}</small>
           </td>
         </tr>
+        {/foreach}
+        {/if}
       </tbody>
-      {/foreach}
-      {/if}
     </table>
   </div>
 </div>
