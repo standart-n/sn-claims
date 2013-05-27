@@ -9,13 +9,13 @@ HR=\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\
 # BUILD DOCS
 #
 
-all: start caffeine js css img haml-tpl finish
+all: start caffeine js css img finish
 
 sn: sn-css caffeine sn-js lmd
 
 bs: bs-css bs-js bs-img lmd
 
-js: caffeine sn-js bs-js lmd
+js: caffeine sn-js lmd
 
 css: sn-css bs-css main-css
 
