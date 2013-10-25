@@ -6,6 +6,8 @@ public static $callback;
 public static $page;
 public static $id;
 public static $message;
+public static $comment;
+public static $department;
 public static $login;
 public static $password;
 
@@ -37,6 +39,14 @@ function __construct() {
 	}
 	if (isset($_REQUEST["message"])) {
 		self::$message=trim(strval($_REQUEST["message"]));
+	}
+
+	if (isset($_REQUEST["comment"])) {
+		self::$comment=trim(strval($_REQUEST["comment"]));
+	}
+
+	if (isset($_REQUEST["department"])) {
+		self::$department=trim(strval($_REQUEST["department"]));
 	}
 	
 }

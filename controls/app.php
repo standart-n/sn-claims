@@ -28,6 +28,8 @@ function claims($pc=array(),$i=-1) {
 		foreach ($ms as $r) { $i++;
 			$pc[$i]['id']=$r->id;
 			$pc[$i]['caption']=toUTF($r->caption);
+			$pc[$i]['company']=toUTF($r->company);
+			$pc[$i]['department']=$r->department;
 			$pc[$i]['msg']=$r->msg;
 			$pc[$i]['email']=$r->email;
 			$pc[$i]['skype']=$r->skype;
@@ -36,7 +38,7 @@ function claims($pc=array(),$i=-1) {
 			$pc[$i]['city']=toUTF($r->city);
 			$pc[$i]['country']=$r->country;
 			$pc[$i]['status']=toUTF($r->status);
-			$pc[$i]['comment']=$r->comment;
+			$pc[$i]['comment']=toUTF($r->comment);
 			$pc[$i]['post_dt']=self::setDate($r->post_dt);
 			foreach (array("email","skype","icq","city","status","site") as $key) {
 				if ($pc[$i][$key]=="") { $pc[$i][$key]="-"; }
