@@ -29,7 +29,7 @@ function claims($pc=array(),$i=-1) {
 			$pc[$i]['id']=$r->id;
 			$pc[$i]['caption']=toUTF($r->caption);
 			$pc[$i]['company']=toUTF($r->company);
-			$pc[$i]['department']=$r->department;
+			$pc[$i]['department']=toUTF($r->department);
 			$pc[$i]['msg']=$r->msg;
 			$pc[$i]['email']=$r->email;
 			$pc[$i]['skype']=$r->skype;
